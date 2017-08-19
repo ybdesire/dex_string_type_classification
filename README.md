@@ -14,11 +14,46 @@ The strings in APK DEX files can be extracted. And the strings have different ty
 The target of this project is to classify the types of DEX strings by machine learning/deep learning.
 
 
-# 2. Source
+# 2. Dataset construction
 
-* APKs are downloads from [360 app store](https://ext.se.360.cn/).
-* The DEX file 'class.dex' is from APK.
-* Source file at folder 'str_txt' is trings with types 
+
+* (1) Download apks from http://zhushou.360.cn/ (prefer diversity apps)
+   * '360mse_nh00002.apk'
+   * 'com.changba_820.apk'
+   * 'com.cootek.smartinputv5_5665.apk'
+   * 'com.dailyyoga.cn_108.apk'
+   * 'com.huajiao_5111011.apk'
+   * 'com.lk.wzzj.qh_60.apk'
+   * 'com.qiyi.video_80890.apk'
+   * 'com.snda.wifilocating_3128.apk'
+   * 'com.tencent.reading_3200.apk'
+   * 'com.tiange.vshow_24.apk'
+
+
+* (2) Extract DEX from APK by 7zip
+
+
+* (3) Extract strings with tag for each DEX file (by internel tool, parse dex format)
+   * parse DEX file is very slow (10 min for one dex)
+   * androguard also very slow
+   
+   
+* (4) Extracted strings with tag as dict
+   
+```
+{
+ 'link': set(), # user defined string
+ 'Observer.onError not implemented and error while unsubscribing.': set(), # user defined string
+ 'Lorg/jsoup/parser/TokeniserState$37;': {'type'},# variable/object type
+ 'Ljava/util/jar/JarFile;': {'type'},# variable/object type
+ 'onFailure': {'method_name'},
+ 'isExtends': {'field_name', 'method_name'}
+}
+```
+
+* total 4 types for strings, and multi-types for one string
+
+* dataset 'str_dict_com.tiange.vshow_24.dex.jl' saved by python 3 joblib
 
 
 
