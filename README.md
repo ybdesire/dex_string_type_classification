@@ -53,7 +53,7 @@ The target of this project is to classify the types of DEX strings by machine le
 
 * total 4 types for strings, and multi-types for one string
 
-* dataset 'str_dict_com.tiange.vshow_24.dex.jl' saved by python 3 joblib
+* dataset 'str_txt/str_dict_com.tiange.vshow_24.dex.jl.txt' saved by python file write directly without format.
 
 
 
