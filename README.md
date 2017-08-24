@@ -57,7 +57,13 @@ The target of this project is to classify the types of DEX strings by machine le
 
 
 
-# 3. How to run the code
+# 3. Code Structure
+
+* dataset_construct_unicode_issue_solution.ipynb
+   * the demo to reproduce & fix Unicode issue
+
+
+# 4. How to run the code
 
 ## environment setup
 
