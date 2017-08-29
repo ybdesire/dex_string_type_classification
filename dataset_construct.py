@@ -9,12 +9,12 @@ def extract_feature_to_dataset():
         with open( os.path.join(orig_data_path, f), 'r' ) as fr:
             feadic = eval(fr.read())
             for k in feadic:
-                v = k.encode('raw_unicode_escape').decode('utf8')
+                v = k.encode('raw_unicode_escape').decode('latin-1')
 
 
 
 if __name__=='__main__':
-    print('asdf')
+    extract_feature_to_dataset()
 
 
 
