@@ -2,7 +2,8 @@ import os
 import joblib as jl
 
 
-def extract_feature_to_dataset():
+# run once then get max_len = 2000 manually
+def get_string_len_distribution():
     orig_data_path = 'str_txt'
     files = os.listdir(orig_data_path)
     
@@ -20,7 +21,10 @@ def extract_feature_to_dataset():
     print(str_len_distribution)
     # {0:16, 50:3292, 228:7, 4044:1}
     # then set max_len for zero-padding
-    
+
+
+def extract_feature_to_dataset():
+    pass
     
     
 
