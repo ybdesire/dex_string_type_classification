@@ -12,7 +12,7 @@ def get_string_len_distribution():
     for f in files:
         with open( os.path.join(orig_data_path, f), 'r' ) as fr:
             feadic = eval(fr.read())
-            for k in feadic:
+            for k in feadic: # key is string
                 v = k.encode('raw_unicode_escape')
                 str_len = len(v)
                 if(str_len not in str_len_distribution):
@@ -32,10 +32,11 @@ def get_labels_distribution():
         with open( os.path.join(orig_data_path, f), 'r' ) as fr:
             feadic = eval(fr.read())
             for k in feadic:
-                labels_distribution.add( tuple(feadic[k]) )
+                labels_distribution.add( tuple(feadic[k]) )# value is label
     print(labels_distribution)
     # {('type',), ('type', 'field_name'), ('method_name', 'type'), ('method_name', 'type', 'field_name'),
     # (), ('method_name',), ('method_name', 'field_name'), ('field_name',)}
+    # blank is 'user defined string'
 
     
 def extract_feature_to_dataset():
