@@ -1,4 +1,4 @@
-import os
+import os, pdb
 import joblib as jl
 
 
@@ -38,14 +38,37 @@ def get_labels_distribution():
     # (), ('method_name',), ('method_name', 'field_name'), ('field_name',)}
     # blank is 'user defined string'
 
-    
-def extract_feature_to_dataset():
-    pass
-    
-    
+
+
+# raw string as feature, max_len, zero-padding
+# binary-classification: 
+# 1 for user defined string
+# 0 for other
+def extract_feature_to_dataset_2c():
+    dst = 'dataset'
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+
+    x_dataset = []
+    y_dataset = []
+
+    max_len = 1000
+    files = os.listdir('str_txt')
+    for f in files:
+        with open( os.path.join('str_txt', f), 'r' ) as fr:
+            feadic = eval(fr.read())
+            for k in feadic: # key is string
+                v = k.encode('raw_unicode_escape')
+                y = 0
+                x = [0]*max_len
+                if(len(v)<=max_len):
+                    x[0:len(v)-1] = v
+                if(feadic[k]==()):# type, user defined string
+                    y = 1
+                
 
 if __name__=='__main__':
-    get_labels_distribution()
+    extract_feature_to_dataset_2c()
 
 
 
