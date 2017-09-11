@@ -63,6 +63,8 @@ def extract_feature_to_dataset_2c():
                 x = [0]*max_len
                 if(len(v)<=max_len):
                     x[0:len(v)-1] = v
+                else:
+                    x = v[0:max_len]
                 if(feadic[k]==()):# type, user defined string
                     y = 1
                 
