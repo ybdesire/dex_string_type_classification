@@ -52,9 +52,6 @@ def extract_feature_to_dataset_2c():
     max_len = 1000
     files = os.listdir('str_txt')
     for f in files:
-        if('changba_820' not in f):# for test
-            continue
-
         sid = f.split('_')[2]
         x_dataset = []
         y_dataset = []
@@ -73,7 +70,7 @@ def extract_feature_to_dataset_2c():
                     x = v[0:max_len]
                 # set y
                 y = 0
-                if(feadic[k]==()):# type, user defined string
+                if(feadic[k]==set()):# type, user defined string
                     y = 1
                 # add to dataset
                 x_dataset.append(x)
