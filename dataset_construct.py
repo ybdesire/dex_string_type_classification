@@ -1,5 +1,6 @@
 import os, pdb
 import joblib as jl
+from tqdm import *
 
 
 # run once then get max_len = 2000 manually
@@ -48,26 +49,33 @@ def extract_feature_to_dataset_2c():
     dst = 'dataset'
     if not os.path.exists(dst):
         os.makedirs(dst)
-
-    x_dataset = []
-    y_dataset = []
-
     max_len = 1000
     files = os.listdir('str_txt')
     for f in files:
+        sid = f.split('_')[2]
+        x_dataset = []
+        y_dataset = []
+
         with open( os.path.join('str_txt', f), 'r' ) as fr:
             feadic = eval(fr.read())
-            for k in feadic: # key is string
+            for k in tqdm(feadic): # key is string
                 v = k.encode('raw_unicode_escape')
-                y = 0
+                # set x
                 x = [0]*max_len
                 if(len(v)<=max_len):
                     x[0:len(v)-1] = v
                 else:
                     x = v[0:max_len]
+                # set y
+                y = 0
                 if(feadic[k]==()):# type, user defined string
                     y = 1
-                
+                # add to dataset
+                x_dataset.append(x)
+                y_dataset.append(y)
+        dataset = {'x':x_dataset, 'y':y_dataset}
+        jl.dump(x_dataset, os.path.join(dst, 'dataset_{0}_xy.jl'.format(sid)))
+        print('completed {0}'.format(sid))
 
 if __name__=='__main__':
     extract_feature_to_dataset_2c()
