@@ -52,6 +52,9 @@ def extract_feature_to_dataset_2c():
     max_len = 1000
     files = os.listdir('str_txt')
     for f in files:
+        if('changba_820' not in f):# for test
+            continue
+
         sid = f.split('_')[2]
         x_dataset = []
         y_dataset = []
@@ -59,6 +62,8 @@ def extract_feature_to_dataset_2c():
         with open( os.path.join('str_txt', f), 'r' ) as fr:
             feadic = eval(fr.read())
             for k in tqdm(feadic): # key is string
+                if(k==''):
+                    continue # invalid string
                 v = k.encode('raw_unicode_escape')
                 # set x
                 x = [0]*max_len
@@ -74,7 +79,7 @@ def extract_feature_to_dataset_2c():
                 x_dataset.append(x)
                 y_dataset.append(y)
         dataset = {'x':x_dataset, 'y':y_dataset}
-        jl.dump(x_dataset, os.path.join(dst, 'dataset_{0}_xy.jl'.format(sid)))
+        jl.dump(dataset, os.path.join(dst, 'dataset_{0}_xy.jl'.format(sid)))
         print('completed {0}'.format(sid))
 
 if __name__=='__main__':
