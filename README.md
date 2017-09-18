@@ -56,32 +56,37 @@ The target of this project is to classify the types of DEX strings by machine le
 * dataset 'str_txt/str_dict_com.tiange.vshow_24.dex.jl.txt' saved by python file write directly without format.
 
 
-
-# 3. Code Structure
-
-* dataset_construct_unicode_issue_solution.ipynb
-   * the demo to reproduce & fix Unicode issue
-
-
-# 4. How to run the code
+# 3. How to run the code
 
 ## environment setup
 
+* python 3
+* jupyter
+* scikit-learn
+* [tensorflow](https://github.com/ybdesire/machinelearning/blob/master/23_tensorflow/install_tf_windows.md)
+* [keras](https://github.com/ybdesire/machinelearning/tree/master/25_keras/install_at_win_conda_tf)
 
 
 ## code structure
 
+* feature engineering: `dataset_construct.py`
+* train & predict & evaluate: `model_test.ipynb`
+* issue & solution
+   * unicode issue : `dataset_construct_unicode_issue_solution.ipynb`
 
 
 ## steps to run
 
+* run feature engineering code to get train & test dataset
 
+```
+python dataset_construct.py
+```
 
-
+* run model train & predict code to get result with evaluation: `model_test.ipynb`
 
 
 # issues
 
-* Multiclass classification: http://scikit-learn.org/stable/modules/multiclass.html
 * CNN 
-* Unicode support
+* [unicode support](dataset_construct_unicode_issue_solution.ipynb)
