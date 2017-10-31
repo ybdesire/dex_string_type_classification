@@ -65,7 +65,7 @@ def extract_feature_to_dataset_2c():
                 # set x
                 x = [0]*max_len
                 if(len(v)<=max_len):
-                    x[0:len(v)-1] = v
+                    x[0:len(v)] = v
                 else:
                     x = v[0:max_len]
                 # set y
