@@ -62,6 +62,7 @@ def extract_feature_to_dataset_2c():
                 if(k==''):
                     continue # invalid string
                 v = k.encode('raw_unicode_escape')
+                v = list(v)
                 # set x
                 x = [0]*max_len
                 if(len(v)<=max_len):
