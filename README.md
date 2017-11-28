@@ -56,7 +56,20 @@ The target of this project is to classify the types of DEX strings by machine le
 * dataset 'str_txt/str_dict_com.tiange.vshow_24.dex.jl.txt' saved by python file write directly without format.
 
 
-# 3. How to run the code
+# 3. Evaluation Result
+
+## 80% train, 20% test
+
+* train samples: 317111
+* test samples: 79278
+* LogisticRegression: ACC-test=0.691
+* SVC: ACC-test=0.691
+* DecisionTree: ACC-test=0.895
+* RandomForest: ACC-test=0.906
+* 2D-CNN: ACC-test=0.840
+
+
+# 4. How to run the code
 
 ## environment setup
 
@@ -77,13 +90,13 @@ The target of this project is to classify the types of DEX strings by machine le
 
 ## steps to run
 
-* run feature engineering code to get train & test dataset
+* (1) run feature engineering code to get train & test dataset
 
 ```
 python dataset_construct.py
 ```
 
-* run model train & predict code to get result with evaluation: `model_test.ipynb`
+* (2) run model train & predict code to get result with evaluation: `model_test.ipynb`
 
 
 # issues
