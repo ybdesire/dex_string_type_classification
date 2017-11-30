@@ -67,6 +67,10 @@ The target of this project is to classify the types of DEX strings by machine le
 * DecisionTree: ACC-test=0.895
 * RandomForest: ACC-test=0.906
 * 2D-CNN: ACC-test=0.840
+* 1D-CNN: ACC-test=0.845
+
+**Why deep learning with low acc?**
+* We just set low epoch for test here. Increase epoch to get better acc.
 
 
 # 4. How to run the code
