@@ -27,7 +27,7 @@ x_train, x_test, y_train, y_test = np.array(x_train), np.array(x_test), np.array
 
 batch_size = 128
 num_classes = 2
-epochs = 3
+epochs = 40
 
 # input image dimensions
 img_rows, img_cols = 1,1000
